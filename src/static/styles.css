@@ -50,7 +50,7 @@ label {
     margin-bottom: 5px;
 }
 
-.interests-box {
+.story-box {
     margin: 0 auto;
     width: 320px;
     padding: 20px;
@@ -60,10 +60,6 @@ label {
     text-align: left;
 }
 
-.interests-box ul {
-    padding-left: 20px;
-}
-
-.interests-box li {
-    padding: 5px 0;
+.story-box p {
+    margin: 0;
 }
