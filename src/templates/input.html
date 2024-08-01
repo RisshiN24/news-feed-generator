@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Interests</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Enter Your Top 3 Interests</h1>
+    <form action="/display" method="post">
+        <label for="interest1">Interest 1:</label>
+        <input type="text" id="interest1" name="interest1"><br><br>
+        <label for="interest2">Interest 2:</label>
+        <input type="text" id="interest2" name="interest2"><br><br>
+        <label for="interest3">Interest 3:</label>
+        <input type="text" id="interest3" name="interest3"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
