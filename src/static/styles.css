@@ -14,13 +14,13 @@ h1 {
 
 form {
     margin: 0 auto;
-    width: 320px;
+    width: 320px; /* Increase width to ensure inputs fit */
     padding: 20px;
     border: 1px solid #ddd;
     background-color: #fff;
     border-radius: 5px;
     text-align: left; /* Align text to the left inside the form */
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 input[type="text"] {
@@ -54,9 +54,23 @@ label {
     margin: 20px auto;
     width: 80%;
     padding: 20px;
-    border: 1px solid #ddd;
-    background-color: #fff;
+    border: 2px solid #bdbdbd;
+    background-color: #f3f3cf;
     border-radius: 5px;
+}
+
+.interest-section {
+    margin-bottom: 20px;
+}
+
+.interest-section h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.interest-title {
+    color: #8b1717; /* Change this color to whatever you prefer */
 }
 
 .news-article {
@@ -64,7 +78,7 @@ label {
     padding: 10px 0;
 }
 
-.news-article h2 {
+.news-article h3 {
     margin: 0 0 10px 0;
 }
 

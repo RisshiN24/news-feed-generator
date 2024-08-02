@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Story</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='styles.css') }}"
-    />
-  </head>
-  <body>
-    <h1>Your Custom News Feed</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>News Related to Your Interests</h1>
     <div class="news-feed">
-      {% for article in news_feed %}
-      <div class="news-article">
-        <h2>{{ article['title'] }}</h2>
-        <p>{{ article['description'] }}</p>
-        <a href="{{ article['url'] }}" target="_blank">Read More</a>
-      </div>
-      {% endfor %}
+        {% for interest, articles in news_feed.items() %}
+            <div class="interest-section">
+                <h2 class="interest-title">{{ interest }}</h2>
+                {% if articles %}
+                    {% for article in articles %}
+                        <div class="news-article">
+                            <h3>{{ article['title'] }}</h3>
+                            <p>{{ article['description'] }}</p>
+                            <a href="{{ article['url'] }}" target="_blank">Read more</a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No articles found for {{ interest }}.</p>
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
-  </body>
+</body>
 </html>
