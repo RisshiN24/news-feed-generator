@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Story</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <h1>Your Story</h1>
-    <div class="story-box">
-        <p>{{ story }}</p>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Your Custom News Feed</h1>
+    <div class="news-feed">
+      {% for article in news_feed %}
+      <div class="news-article">
+        <h2>{{ article['title'] }}</h2>
+        <p>{{ article['description'] }}</p>
+        <a href="{{ article['url'] }}" target="_blank">Read More</a>
+      </div>
+      {% endfor %}
     </div>
-</body>
+  </body>
 </html>

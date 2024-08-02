@@ -50,16 +50,24 @@ label {
     margin-bottom: 5px;
 }
 
-.story-box {
-    margin: 0 auto;
-    width: 320px;
+.news-feed {
+    margin: 20px auto;
+    width: 80%;
     padding: 20px;
-    border: 2px solid #cccccc;
+    border: 1px solid #ddd;
     background-color: #fff;
     border-radius: 5px;
-    text-align: left;
 }
 
-.story-box p {
-    margin: 0;
+.news-article {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.news-article h2 {
+    margin: 0 0 10px 0;
+}
+
+.news-article p {
+    margin: 0 0 10px 0;
 }
