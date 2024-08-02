@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>News Related to Your Interests</h1>
+    <h1>News for You!</h1>
     <div class="news-feed">
         {% for interest, articles in news_feed.items() %}
             <div class="interest-section">
@@ -19,6 +19,11 @@
                             <h3>{{ article['title'] }}</h3>
                             <p>{{ article['description'] }}</p>
                             <a href="{{ article['url'] }}" target="_blank">Read more</a>
+                            <form class="form-summarize" action="/summarize" method="post">
+                                <input type="hidden" name="url" value="{{ article['url'] }}">
+                                <input type="hidden" name="title" value="{{ article['title'] }}">
+                                <button type="submit">Summarize</button>
+                            </form>
                         </div>
                     {% endfor %}
                 {% else %}

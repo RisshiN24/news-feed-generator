@@ -1,5 +1,9 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 import requests
+from langchain.chains.summarize import load_summarize_chain
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_openai import ChatOpenAI
+import bs4
 import os
 from dotenv import load_dotenv
 
@@ -7,8 +11,9 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Set your NewsAPI key
+# Set your API keys
 news_api_key = os.getenv("NEWS_API_KEY")
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route('/')
 def input_interests():
@@ -35,6 +40,22 @@ def get_news_feed(api_key, interests):
                     valid_articles.append(article)
             news_feed[interest] = valid_articles
     return news_feed
+
+@app.route('/summarize', methods=['POST'])
+def summarize_article():
+    url = request.form['url']
+    title = request.form['title']
+    summary = generate_summary(url)
+    return render_template('summary.html', title=title, summary=summary, url=url)
+
+def generate_summary(url):
+    loader = WebBaseLoader(url)
+    docs = loader.load()
+    llm = ChatOpenAI(temperature=0, model_name="gpt-4o-mini")
+    chain = load_summarize_chain(llm, chain_type="stuff")
+    result = chain.invoke(docs)
+    summary = result["output_text"]
+    return summary
 
 if __name__ == '__main__':
     app.run(debug=True)

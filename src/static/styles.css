@@ -12,7 +12,7 @@ h1 {
     text-align: center; /* Center only the header */
 }
 
-form {
+.form-input {
     margin: 0 auto;
     width: 320px; /* Increase width to ensure inputs fit */
     padding: 20px;
@@ -21,6 +21,12 @@ form {
     border-radius: 5px;
     text-align: left; /* Align text to the left inside the form */
     box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.form-summarize {
+    display: inline;
+    padding: 0;
+    margin: 0;
 }
 
 input[type="text"] {
@@ -34,15 +40,18 @@ input[type="text"] {
     box-sizing: border-box; /* Include padding and border in width */
 }
 
-input[type="submit"] {
-    display: block;
-    width: calc(100% - 22px); /* Adjust width to fit within padding */
-    margin: 0 auto; /* Center the submit button */
-    padding: 10px;
-    font-size: 16px;
+input[type="submit"], button {
+    padding: 5px 10px; /* Adjust padding for the button */
+    font-size: 14px; /* Adjust font size if needed */
     border-radius: 3px;
     border: 1px solid #ccc;
-    box-sizing: border-box; /* Include padding and border in width */
+    background-color: #ff3300ea;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 label {
@@ -50,13 +59,22 @@ label {
     margin-bottom: 5px;
 }
 
+.story-box {
+    margin: 0 auto;
+    width: 320px; /* Match the width of the form */
+    padding: 20px; /* Add padding inside the box */
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.story-box p {
+    margin: 0;
+}
+
 .news-feed {
     margin: 20px auto;
     width: 80%;
-    padding: 20px;
-    border: 2px solid #bdbdbd;
-    background-color: #f3f3cf;
-    border-radius: 5px;
 }
 
 .interest-section {
@@ -70,7 +88,7 @@ label {
 }
 
 .interest-title {
-    color: #8b1717; /* Change this color to whatever you prefer */
+    color: #007bff; /* Change this color to whatever you prefer */
 }
 
 .news-article {
@@ -84,4 +102,10 @@ label {
 
 .news-article p {
     margin: 0 0 10px 0;
+}
+
+.news-article .summary {
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
 }
